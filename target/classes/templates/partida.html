@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" />
+<head>
+<meta charset="UTF-8" />
+<title th:text="${titulo}">Insert title here</title>
+<script th:src="@{jquery.min.js}"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}"><link>
+</head>
+<body>
+<h1>TIC TAC TOE </h1>
+<h3 th:text="'Bienvenid@ ' + ${nombre}"></h3>
+	<table>
+		<tbody>
+			<tr>
+				<td id="c00" width="80px" height="80px" align="center" style="border: black 1px solid; cursor: pointer"><h1 th:text="${c00}"></h1></td>
+				<td id="c01" width="80px" height="80px" align="center" style="border: black 1px solid; cursor: pointer"><h1 th:text="${c01}"></h1></td>
+				<td id="c02" width="80px" height="80px" align="center" style="border: black 1px solid; cursor: pointer"><h1 th:text="${c02}"></h1></td>
+			</tr>
+			<tr>
+				<td id="c10" width="80px" height="80px" align="center" style="border: black 1px solid; cursor: pointer"><h1 th:text="${c10}"></h1></td>
+				<td id="c11" width="80px" height="80px" align="center" style="border: black 1px solid; cursor: pointer"><h1 th:text="${c11}"></h1></td>
+				<td id="c12" width="80px" height="80px" align="center" style="border: black 1px solid; cursor: pointer"><h1 th:text="${c12}"></h1></td>
+			</tr>
+			<tr>
+				<td id="c20" width="80px" height="80px" align="center" style="border: black 1px solid; cursor: pointer"><h1 th:text="${c20}"></h1></td>
+				<td id="c21" width="80px" height="80px" align="center" style="border: black 1px solid; cursor: pointer"><h1 th:text="${c21}"></h1></td>
+				<td id="c22" width="80px" height="80px" align="center" style="border: black 1px solid; cursor: pointer"><h1 th:text="${c22}"></h1></td>
+			</tr>
+		</tbody>
+		<br />
+	</table>
+	<input id="nombre" type="hidden" th:value="${nombre}" />
+	<input id="bandera" type="hidden" th:value="${bandera}" />
+	<script type="text/javascript">
+		function refrescar(){
+		    //Actualiza la página
+		    
+		    location.reload();
+			// window.locationf="http://localhost:8080/estado_partida;
+		  }
+		$(document).ready(function() {
+			setTimeout(refrescar, 3000);
+		    $('#c00').click(function() {
+		    	window.location.href = "http://localhost:8080/movimiento?movimiento=00&usuario=" + $('#nombre').val();
+		    });
+		    $('#c01').click(function() {
+		    	window.location.href = "http://localhost:8080/movimiento?movimiento=01&usuario=" + $('#nombre').val();
+		    });
+		    $('#c02').click(function() {
+		    	window.location.href = "http://localhost:8080/movimiento?movimiento=02&usuario=" + $('#nombre').val();
+		    });
+		    $('#c10').click(function() {
+		    	window.location.href = "http://localhost:8080/movimiento?movimiento=10&usuario=" + $('#nombre').val();
+		    });
+		    $('#c11').click(function() {
+		    	window.location.href = "http://localhost:8080/movimiento?movimiento=11&usuario=" + $('#nombre').val();
+		    });
+		    $('#c12').click(function() {
+		    	window.location.href = "http://localhost:8080/movimiento?movimiento=12&usuario=" + $('#nombre').val();
+		    });
+		    $('#c20').click(function() {
+		    	window.location.href = "http://localhost:8080/movimiento?movimiento=20&usuario=" + $('#nombre').val();
+		    });
+		    $('#c21').click(function() {
+		    	window.location.href = "http://localhost:8080/movimiento?movimiento=21&usuario=" + $('#nombre').val();
+		    });
+		    $('#c22').click(function() {
+		    	window.location.href = "http://localhost:8080/movimiento?movimiento=22&usuario=" + $('#nombre').val();
+		    });
+		});
+	</script>
+	<script th:src="@{/jquery-3.4.1.slim.min.js}"></script>
+	<script th:src="@{/popper.min.js}"></script>
+	<script th:src="@{/bootstrap.min.js}"></script>
+</body>
+</html>

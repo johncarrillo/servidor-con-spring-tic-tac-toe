@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" />
+<head>
+<meta charset="UTF-8" />
+<title th:text="${titulo}">Insert title here</title>
+<script th:src="@{jquery.min.js}"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}"><link>
+</head>
+<body>
+<h1>RANKING</h1>
+	<table th:if="${ranking.size()>0}">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Puntaje</th>
+				<th>Victorias</th>
+			</tr>
+		</thead>
+		<tbody>
+				<tr th:each="usuario: ${ranking}">
+					<td th:text="${usuario.nombre}"></td>
+					<td th:text="${usuario.puntaje}"></td>
+					<td th:text="${usuario.victorias}"></td>
+				</tr>
+		</tbody>
+	</table>
+		<br />
+		<form action="http://localhost:8080/iniciar" method="post">
+		    <label for="nombre">Nombre:</label>
+		    <input type="text" id="nombre" name="nombre">
+
+			 <button type="submit">Buscar Partida</button>
+
+		 </ul>
+		</form>
+	
+	<script th:src="@{/jquery-3.4.1.slim.min.js}"></script>
+	<script th:src="@{/popper.min.js}"></script>
+	<script th:src="@{/bootstrap.min.js}"></script>
+</body>
+</html>
